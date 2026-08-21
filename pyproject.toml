@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cyberlabkit"
+version = "0.1.0"
+description = "Safe, offline-first toolkit for building and documenting cybersecurity learning labs."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{name = "THERY14"}]
+license = {text = "MIT"}
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Education",
+  "Intended Audience :: Developers",
+  "Topic :: Security",
+  "Programming Language :: Python :: 3",
+]
+
+[project.scripts]
+cyberlabkit = "cyberlabkit.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["cyberlabkit*"]
