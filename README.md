@@ -1,87 +1,127 @@
-# CyberLabKit
+# Cybersecurity Portfolio | THERY14
 
-Open-source toolkit for building, validating, and documenting cybersecurity learning labs.
+<p align="center">
+  <strong>Blue Team · SOC Operations · Python Security Automation · Linux Hardening</strong>
+</p>
 
-CyberLabKit is designed for students, educators, and security practitioners who want a repeatable way to turn a computer into a safe cybersecurity practice environment. The project combines environment checks, guided lab definitions, evidence collection, and learning documentation.
+<p align="center">
+  <img src="https://img.shields.io/badge/Focus-Blue%20Team-0ea5e9?style=for-the-badge" alt="Blue Team focus">
+  <img src="https://img.shields.io/badge/Python-3.10%2B-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python 3.10+">
+  <img src="https://img.shields.io/badge/Platform-Linux%20%7C%20Windows-111827?style=for-the-badge" alt="Linux and Windows">
+  <img src="https://img.shields.io/badge/Safety-Defensive%20Only-16a34a?style=for-the-badge" alt="Defensive only">
+</p>
 
-> **Safety first:** CyberLabKit is intended for systems you own or have explicit authorization to test. It does not automate attacks against third-party systems.
+**I am building practical cybersecurity skills through defensive tools, repeatable labs, and documented investigations.** This repository is a hands-on portfolio focused on entry-level SOC and Junior Cybersecurity Analyst workflows.
 
-## Why this project exists
+> **Portfolio principle:** every project should be reproducible, documented, testable, and honest about its limitations. All exercises are designed for synthetic data or systems I own / am authorized to assess.
 
-Cybersecurity education is often split between theory and isolated exercises. CyberLabKit aims to bridge that gap by providing a consistent workflow:
+## Featured projects
 
-**Learn → Build → Validate → Practice → Document → Improve**
+| Project | What it does | Skills demonstrated |
+|---|---|---|
+| [SOC Log Analyzer](projects/soc-log-analyzer/) | Parses authentication events and flags repeated failures and successful logins after failure bursts. | Python, log analysis, detection logic, alert triage, JSON, unit tests |
+| [Linux Posture Audit](projects/linux-posture-audit/) | Performs read-only baseline checks for selected Linux security settings and produces structured findings. | Linux, SSH hardening, permissions, firewall awareness, risk prioritization |
+| [CyberLabKit](#cyberlabkit) | Creates local cybersecurity lab workspaces and generates Markdown evidence reports. | Python CLI, lab documentation, repeatable learning environments |
 
-The long-term goal is a community-maintained collection of labs covering networking, Linux, Windows, web security, SOC, incident response, cloud security, and defensive automation.
+## Project 1 — SOC Log Analyzer
 
-## Current MVP
+A small defensive triage utility for JSONL, JSON, and CSV authentication events.
 
-The first release focuses on a safe local workflow:
+- Groups failed logins by source IP and username.
+- Flags repeated failures and a successful login after a failure burst.
+- Assigns severity and exports machine-readable JSON.
+- Includes synthetic sample events and unit tests.
 
-- `cyberlabkit check` validates common prerequisites on a learning machine.
-- `cyberlabkit init` creates a structured workspace for a new lab.
-- `cyberlabkit report` generates a Markdown progress report from lab metadata.
-- Lab definitions are plain YAML/JSON-friendly files so educators can version them with Git.
-- The project is intentionally offline-first and does not require cloud credentials.
+**Run it**
+```bash
+cd projects/soc-log-analyzer
+python soc_log_analyzer.py sample_auth.jsonl
+python -m unittest -v
+```
 
-## Quick start
+[Open project documentation →](projects/soc-log-analyzer/README.md)
 
+## Project 2 — Linux Posture Audit
+
+A read-only Linux baseline checker. It reviews selected SSH settings, UFW status, IPv4 forwarding, shadow-file permissions, and default UMASK.
+
+- Produces findings with severity, status, evidence, and remediation guidance.
+- Reports UNKNOWN when a check cannot be completed.
+- Does not change system configuration.
+- Includes tests and a JSON output option.
+
+**Run it**
+```bash
+cd projects/linux-posture-audit
+python linux_posture_audit.py
+python -m unittest -v
+```
+
+[Open project documentation →](projects/linux-posture-audit/README.md)
+
+## CyberLabKit
+
+CyberLabKit is an offline-first toolkit for creating and documenting safe cybersecurity learning labs.
+
+Current commands:
+- `cyberlabkit check` — checks local learning prerequisites.
+- `cyberlabkit init <name>` — creates a lab workspace with notes and evidence folders.
+- `cyberlabkit report <name>` — generates a Markdown lab report.
+
+**Quick start**
 ```bash
 python -m venv .venv
 # Linux/macOS
 source .venv/bin/activate
 # Windows PowerShell
-# .venv\Scripts\Activate.ps1
-
+# .venv\\Scripts\\Activate.ps1
 pip install -e .
 cyberlabkit check
 cyberlabkit init my-first-lab
 cyberlabkit report my-first-lab
 ```
 
-## Example workflow
+## Technical focus
 
-1. Create a lab workspace.
-2. Add the systems and objectives you are authorized to use.
-3. Run the environment checks.
-4. Complete the lab manually.
-5. Record observations and evidence.
-6. Generate a report that can be reviewed by a mentor or included in a learning portfolio.
+- **Security operations:** authentication-log review, alert triage, incident documentation.
+- **Systems:** Windows and Linux support, Linux security baselines, troubleshooting.
+- **Automation:** Python fundamentals, command-line tools, structured JSON reporting.
+- **IT operations:** ticket handling, prioritization, documentation, and SLA awareness.
+- **Learning path:** SOC fundamentals, SIEM concepts, network security, vulnerability management, and incident response.
+
+## Certifications & learning
+
+- Cisco Networking Academy — Introduction to Cybersecurity
+- Cisco Networking Academy — Python Essentials 1
+- Santander Academy — Introduction to Data Science
+
+## Engineering quality
+
+- Python 3.10+
+- Standard-library-first implementations where practical
+- Automated tests with GitHub Actions
+- Synthetic sample data; no customer or private production logs
+- Clear scope, limitations, and remediation guidance
 
 ## Roadmap
 
-### Phase 1 — Foundation
-- environment validation
-- lab templates
-- Markdown reporting
-- unit tests and CI
+- [x] Build a repeatable cybersecurity lab workspace (CyberLabKit MVP)
+- [x] Create an authentication-log triage prototype
+- [x] Create a read-only Linux posture baseline prototype
+- [ ] Add time-window correlation and Windows Event Log parsing
+- [ ] Add more Linux checks with distribution-aware validation
+- [ ] Publish investigation write-ups with sanitized evidence
+- [ ] Add SIEM integration labs (e.g. Wazuh) in an isolated environment
 
-### Phase 2 — Learning labs
-- networking fundamentals
-- Linux hardening
-- Windows event analysis
-- web security exercises using intentionally vulnerable targets
+## About this portfolio
 
-### Phase 3 — Blue Team
-- log collection templates
-- IOC tracking
-- incident-response case files
-- MITRE ATT&CK mapping helpers
+I am pursuing opportunities in **SOC L1 / Junior Cybersecurity Analyst / Blue Team** roles. My approach is to connect my IT support and systems foundation with practical security automation and documented hands-on work.
 
-### Phase 4 — Community
-- contribution templates
-- reviewed community labs
-- multilingual content (English / Spanish)
-- reusable instructor guides
+**Languages:** Spanish (native); English — developing professional proficiency.
 
-## Contributing
+## Responsible use
 
-Contributions are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md) for the workflow and safety rules.
+These projects are for education and defensive security. Use only synthetic data or systems you own or have explicit authorization to assess. Findings are indicators for human review, not proof of compromise or compliance.
 
-## Security
-
-See [SECURITY.md](SECURITY.md). Security issues should be reported responsibly. Do not submit real credentials, private logs, or targets that you do not own or have permission to test.
-
-## License
-
-MIT — see [LICENSE](LICENSE).
+---
+*Maintained by [@THERY14](https://github.com/THERY14).*
