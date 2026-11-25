@@ -21,6 +21,7 @@
 |---|---|---|
 | [SOC Log Analyzer](projects/soc-log-analyzer/) | Parses authentication events and flags repeated failures and successful logins after failure bursts. | Python, log analysis, detection logic, alert triage, JSON, unit tests |
 | [Linux Posture Audit](projects/linux-posture-audit/) | Performs read-only baseline checks for selected Linux security settings and produces structured findings. | Linux, SSH hardening, permissions, firewall awareness, risk prioritization |
+| [Windows Firewall Guard](projects/windows-firewall-guard/) | Audits Windows Firewall profiles without changing rules and documents a reversible outbound blocking lab. | Windows Firewall, PowerShell, Python, data minimization, unit tests |
 | [CyberLabKit](#cyberlabkit) | Creates local cybersecurity lab workspaces and generates Markdown evidence reports. | Python CLI, lab documentation, repeatable learning environments |
 
 ## Project 1 — SOC Log Analyzer
